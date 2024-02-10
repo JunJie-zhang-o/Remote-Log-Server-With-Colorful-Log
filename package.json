@@ -1,9 +1,9 @@
 {
 	"name": "remote-log-server-with-colorful-log",
 	"displayName": "Remote Log Server With Colorful Log",
-	"description": "Accept log data on a socket and see the log in realtime in a document without touching the disk",
-	"version": "1.0.0",
-	"publisher": "Zhang Junjie",
+	"description": "Provides a Socket TCP Server port in VSCode to listen to client logs and highlight them in the output channel; also provides a language mode for highlighting existing log files.",
+	"version": "1.0.1",
+	"publisher": "JunJieZhang",
 	"engines": {
 		"vscode": "^1.80.0"
 	},
