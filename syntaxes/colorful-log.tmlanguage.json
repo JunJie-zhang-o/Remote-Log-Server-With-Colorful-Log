@@ -1,0 +1,132 @@
+{
+    "scopeName": "source.output",
+    "name": "Colorful Log",
+    "patterns": [
+        {
+            "captures": {
+                "1": {
+                    "name": "ColorfulLog.log-time"
+                },
+                "2": {
+                    "name": "ColorfulLog.log-other-info"
+                },
+                "3": {
+                    "name": "ColorfulLog.log-level",
+                    "patterns": [
+                        {
+                            "match": "(\\s*DEBUG\\s*)\\|([^|]*)\\|(.*)|",
+                            "captures": {
+                                "1": {
+                                    "name": "ColorfulLog.log-level.DEBUG"
+                                },
+                                "2": {
+                                    "name": "ColorfulLog.log-fileno"
+                                },
+                                "3": {
+                                    "name": "ColorfulLog.log-level.DEBUG.msg"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "4": {
+                    "name": "ColorfulLog.log-level",
+                    "patterns": [
+                        {
+                            "match": "(\\s*INFO\\s*)\\|([^|]*)\\|(.*)|",
+                            "captures": {
+                                "1": {
+                                    "name": "ColorfulLog.log-level.INFO"
+                                },
+                                "2": {
+                                    "name": "ColorfulLog.log-fileno"
+                                },
+                                "3": {
+                                    "name": "ColorfulLog.log-level.INFO.msg"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "5": {
+                    "name": "ColorfulLog.log-level",
+                    "patterns": [
+                        {
+                            "match": "(\\s*ERROR\\s*)\\|([^|]*)\\|(.*)|",
+                            "captures": {
+                                "1": {
+                                    "name": "ColorfulLog.log-level.ERROR"
+                                },
+                                "2": {
+                                    "name": "ColorfulLog.log-fileno"
+                                },
+                                "3": {
+                                    "name": "ColorfulLog.log-level.ERROR.msg"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "6": {
+                    "name": "ColorfulLog.log-level",
+                    "patterns": [
+                        {
+                            "match": "(\\s*WARNING\\s*)\\|([^|]*)\\|(.*)|",
+                            "captures": {
+                                "1": {
+                                    "name": "ColorfulLog.log-level.WARNING"
+                                },
+                                "2": {
+                                    "name": "ColorfulLog.log-fileno"
+                                },
+                                "3": {
+                                    "name": "ColorfulLog.log-level.WARNING.msg"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "7": {
+                    "name": "ColorfulLog.log-level",
+                    "patterns": [
+                        {
+                            "match": "(\\s*CRITICAL\\s*)\\|([^|]*)\\|(.*)|",
+                            "captures": {
+                                "1": {
+                                    "name": "ColorfulLog.log-level.CRITICAL"
+                                },
+                                "2": {
+                                    "name": "ColorfulLog.log-fileno"
+                                },
+                                "3": {
+                                    "name": "ColorfulLog.log-level.CRITICAL.msg"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "8": {
+                    "name": "ColorfulLog.log-level",
+                    "patterns": [
+                        {
+                            "match": "(\\s*SUCCESS\\s*)\\|([^|]*)\\|(.*)|",
+                            "captures": {
+                                "1": {
+                                    "name": "ColorfulLog.log-level.SUCCESS"
+                                },
+                                "2": {
+                                    "name": "ColorfulLog.log-fileno"
+                                },
+                                "3": {
+                                    "name": "ColorfulLog.log-level.SUCCESS.msg"
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            "match": "([^|]*)\\|([^|]*)\\|(?:(\\s*DEBUG.*)|(\\s*INFO.*)|(\\s*ERROR.*)|(\\s*WARNING.*)|(\\s*CRITICAL.*)|(\\s*SUCCESS.*))",
+            "name": "Colorful Log.log"
+        }
+    ]
+}
