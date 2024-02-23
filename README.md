@@ -19,7 +19,6 @@ Logs generally contain information such as time, log level, line number, log con
 `|` also has a good visual effect for text separation in text without color highlighting, so the plugin uses `|` for log highlighting. If a single line of text has four `|` symbols, the text will be split into the following semantics for highlighting.
 
 ```tex
-texCopy code
 Definition:
 time | other | level | fileno | msg
 
@@ -41,7 +40,6 @@ Example:
 ![remoteLogServer](./assets/remoteLogServer.gif)You can use the following `Python (Test Version: 3.10.10)` code for testing.
 
 ```python
-pythonCopy code
 #!/usr/bin/env python3
 # coding=utf-8
 import logging
@@ -90,7 +88,6 @@ if __name__ == "__main__":
 Edit in `settings.json`
 
 ```json
-jsonCopy code
     "editor.tokenColorCustomizations": {
         "textMateRules": [
             {
