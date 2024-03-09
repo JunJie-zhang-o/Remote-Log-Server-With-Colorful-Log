@@ -40,6 +40,10 @@
 			{
 				"command": "RemoteLogServerWithColorfulLog.toggle_rls",
 				"title": "Pause/Resume Remote Log Listening"
+			},
+			{
+				"command": "RemoteLogServerWithColorfulLog.clear_rls",
+				"title": "Clear Remote Log Output Channel"
 			}
 		],
 		"configuration": {
