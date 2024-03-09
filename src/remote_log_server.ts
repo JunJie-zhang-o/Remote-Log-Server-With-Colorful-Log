@@ -54,6 +54,10 @@ export class RemoteLogServer {
 			// vscode.window.setStatusBarMessage(`Log server started: ${JSON.stringify(this.server.address())}`, 3000)
 			vscode.window.showInformationMessage(`The Remote Log Server Started: ${JSON.stringify(this.server.address())}`)
 			this.outputChannel.appendLine("----------------------START----------------------")
+		}).on('error', (error: any) => {
+			// Failed to monitor
+			vscode.window.showErrorMessage(`Failed to start the Remote Log Server: ${error.message}`)
+			this.outputChannel.appendLine(`Error starting the server: ${error.message}`)
 		})
 	}
 
