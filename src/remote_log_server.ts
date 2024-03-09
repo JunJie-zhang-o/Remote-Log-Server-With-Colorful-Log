@@ -71,4 +71,10 @@ export class RemoteLogServer {
 		this.enabled = !this.enabled
 		vscode.window.setStatusBarMessage(this.enabled ? 'Log server resumes' : 'Log server is paused', 2000)
 	}
+
+	public clear() {
+		if (this.enabled) {
+			this.outputChannel.clear();
+		}
+	}
 }
