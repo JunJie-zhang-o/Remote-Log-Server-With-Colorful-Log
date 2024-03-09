@@ -10,10 +10,10 @@ export class RemoteLogServer {
 
 
 	constructor() {
-		this.enabled = true
+		this.enabled = false
 		this.statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 1)
 		this.statusBarItem.text = "Remote Log Server: $(debug-start) "
-		this.statusBarItem.tooltip = "Click the button to start monitoring the log."
+		this.updateStatusBarTooltip()
 		this.statusBarItem.command = "RemoteLogServerWithColorfulLog.start_rls"
 		this.statusBarItem.show()
 
@@ -46,11 +46,13 @@ export class RemoteLogServer {
 
 	public start() {
 		this.enabled = true
+		let conf = vscode.workspace.getConfiguration('RemoteLogServerWithColorfulLog')
+		let host:string = conf.get("host") as string
+		let port:number = conf.get("port") as number
 		this.statusBarItem.command = "RemoteLogServerWithColorfulLog.stop_rls"
 		this.statusBarItem.text = "Remote Log Server: $(debug-stop)"
-		this.statusBarItem.tooltip = "Click the button to stop monitoring the log.\nPort:9020"
-		let conf = vscode.workspace.getConfiguration('RemoteLogServerWithColorfulLog')
-		this.server.listen(conf.get('port'), conf.get('host'), () => {
+		this.statusBarItem.tooltip = `Click the button to stop monitoring the log.\nHost:${host} Port:${port}`
+		this.server.listen(port, host, () => {
 			// vscode.window.setStatusBarMessage(`Log server started: ${JSON.stringify(this.server.address())}`, 3000)
 			vscode.window.showInformationMessage(`The Remote Log Server Started: ${JSON.stringify(this.server.address())}`)
 			this.outputChannel.appendLine("----------------------START----------------------")
@@ -69,6 +71,7 @@ export class RemoteLogServer {
 		vscode.window.showInformationMessage("The Remote Log Server Has Stop")
 		this.server.close()
 		// vscode.window.setStatusBarMessage('Log server stopped', 1000)
+		this.updateStatusBarTooltip()
 	}
 
 	public toggle() {
@@ -80,5 +83,12 @@ export class RemoteLogServer {
 		if (this.enabled) {
 			this.outputChannel.clear();
 		}
+	}
+
+	public updateStatusBarTooltip(){
+		let conf = vscode.workspace.getConfiguration('RemoteLogServerWithColorfulLog')
+		let host:string = conf.get("host") as string
+		let port:number = conf.get("port") as number
+		this.statusBarItem.tooltip = `Click the button to start monitoring the log.\nHost:${host} Port:${port}`
 	}
 }
