@@ -8,6 +8,7 @@ export class RemoteLogServer {
 	statusBarItem: vscode.StatusBarItem
 	outputChannel: vscode.OutputChannel
 
+	isShowOutputChannel:boolean = false
 
 	constructor() {
 		this.enabled = false
@@ -45,7 +46,10 @@ export class RemoteLogServer {
 	}
 
 	public start() {
-		this.enabled = true
+		if (!this.isShowOutputChannel) {
+			this.outputChannel.show()
+			this.isShowOutputChannel = true
+		}
 		let conf = vscode.workspace.getConfiguration('RemoteLogServerWithColorfulLog')
 		let host:string = conf.get("host") as string
 		let port:number = conf.get("port") as number
