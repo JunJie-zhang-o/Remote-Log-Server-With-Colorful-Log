@@ -78,6 +78,7 @@ export class RemoteLogServer {
 		this.statusBarItem.tooltip = "Click the button to start monitoring the log."
 		this.statusBarItem.command = "RemoteLogServerWithColorfulLog.start_rls"
 		vscode.window.showInformationMessage("The Remote Log Server Has Stop")
+		this.outputChannel.appendLine("----------------------STOP-----------------------")
 		this.server.close()
 		// vscode.window.setStatusBarMessage('Log server stopped', 1000)
 		this.updateStatusBarTooltip()
