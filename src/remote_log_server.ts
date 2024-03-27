@@ -102,4 +102,9 @@ export class RemoteLogServer {
 		let port:number = conf.get("port") as number
 		this.statusBarItem.tooltip = `Click the button to start monitoring the log.\nHost:${host} Port:${port}`
 	}
+
+	public destroy(){
+		this.outputChannel.hide()
+		this.outputChannel.dispose()
+	}
 }
